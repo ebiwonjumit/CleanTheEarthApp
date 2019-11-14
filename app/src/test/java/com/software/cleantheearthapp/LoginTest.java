@@ -12,11 +12,11 @@ public class LoginTest {
 
     @Test
     public void inputUsername(){
-        assertEquals("testUser1", loginPageActivity.getUsername());
+        assertEquals("test", loginPageActivity.getUsername());
     }
 
     @Test
     public void inputPassword(){
-        assertEquals("testUser1Pass",loginPageActivity.getPassword());
+        assertEquals("testpassword",loginPageActivity.getPassword());
     }
 }
