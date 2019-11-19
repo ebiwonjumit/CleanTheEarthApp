@@ -46,6 +46,18 @@
             android:background="#000000"
             android:text="@string/login_button_title"
             android:textColor="#FFFFFF"/>
-</RelativeLayout>
+
+        <TextView
+            android:id="@+id/wrong_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@id/login_button"
+            android:text="@string/wrong_login"
+            android:textSize="20sp"
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

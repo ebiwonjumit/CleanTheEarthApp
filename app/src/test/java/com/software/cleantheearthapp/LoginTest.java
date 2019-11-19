@@ -19,4 +19,7 @@ public class LoginTest {
     public void inputPassword(){
         assertEquals("testpassword",loginPageActivity.getPassword());
     }
+
+    @Test
+    public void testButton(){}
 }
