@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:layout_alignParentTop="true"
+        android:text="Reserve"
+        android:textColor="#00AAA1"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/signTypeBanner"
+        android:layout_width="107dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="70dp"
+        android:text="Sign Type"
+        android:textColor="#00AAA1"
+        android:textSize="18sp"/>
+
+    <Spinner
+        android:id="@+id/signTypeSpinner"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#471F66"/>
+
+    <TextView
+        android:id="@+id/amountBanner"
+        android:layout_width="107dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="70dp"
+        android:text="Amount"
+        android:textColor="#00AAA1"
+        android:textSize="18sp"/>
+
+    <Spinner
+        android:id="@+id/amountSpinner"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#471F66"/>
+
+    <Button
+        android:id="@+id/reserveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:layout_centerHorizontal="true"
+        android:background="#00AAA1"
+        android:onClick="SignsReserved"
+        android:text="Reserve"/>
+
+</RelativeLayout>
