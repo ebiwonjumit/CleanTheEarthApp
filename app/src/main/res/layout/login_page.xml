@@ -12,8 +12,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="90dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="130dp"
+            android:textColor="#00AAA1"
             android:layout_alignParentTop="true"
             android:text="@string/welcome_title"
             android:textSize="30sp" />
@@ -23,6 +24,7 @@
             android:layout_width="200dp"
             android:layout_marginTop="200dp"
             android:layout_marginLeft="100dp"
+            android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:hint="@string/username_placeholder_title"/>
@@ -33,6 +35,7 @@
             android:layout_marginBottom="20dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
+            android:layout_centerHorizontal="true"
             android:layout_alignParentLeft="true"
             android:layout_below="@id/login_userField"
             android:hint="@string/password_placeholder_title"/>
@@ -44,9 +47,9 @@
             android:layout_marginLeft="100dp"
             android:layout_alignParentLeft="true"
             android:layout_below="@id/login_passwrodField"
-            android:background="#000000"
             android:text="@string/login_button_title"
-            android:textColor="#FFFFFF"/>
+            android:background="#00AAA1"
+            android:layout_centerHorizontal="true"/>
 
         <TextView
             android:id="@+id/wrong_login"
