@@ -5,5 +5,5 @@
     <string name="login_button_title">Login</string>
     <string name="username_placeholder_title">Username</string>
     <string name="password_placeholder_title">Password</string>
-<!--    <string name="wrong_login">Username/Password is incorrect</string>-->
+    <string name="wrong_login">Username/Password is incorrect</string>
 </resources>

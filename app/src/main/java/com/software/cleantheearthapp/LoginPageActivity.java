@@ -17,21 +17,23 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginPageActivity extends AppCompatActivity {
 
     public String username;
     public String password;
+    public String userFromJ;
+    public String passFromJ;
     EditText userField;
     EditText passwordField;
     Button loginButton;
     boolean correctUser;
     boolean correctPassword;
     TextView wrongLogin;
-
-
-
+    private RequestQueue queue;
 
 
     @Override
@@ -39,27 +41,8 @@ public class LoginPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
-        String url = "http://softengineapi.us-east-2.elasticbeanstalk.com/api/users";
 
-        final RequestQueue queue =  Volley.newRequestQueue(this);
-
-        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        wrongLogin.setText(response.toString());
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // TODO: Handle error
-
-                        wrongLogin.setText("error");
-
-                    }
-                });
+        queue = Volley.newRequestQueue(this);
 
         userField = findViewById(R.id.login_userField);
         wrongLogin = findViewById(R.id.wrong_login);
@@ -73,25 +56,59 @@ public class LoginPageActivity extends AppCompatActivity {
                 password = passwordField.getText().toString();
                 username = userField.getText().toString();
                 loginButton.setBackgroundColor(Color.parseColor("#FA3910"));
-                queue.add(jsonObjectRequest);
+                jsonParse();
+//                correctPassword = checkPassword(password,passFromJ);
+//                correctUser = checkUser(username,userFromJ);
 
-
-               if(!correctUser || !correctPassword){
-                   wrongLogin.setVisibility(View.VISIBLE);
-                }else {
+                if (!correctUser || !correctPassword) {
+                    wrongLogin.setVisibility(View.VISIBLE);
+                } else {
                     //right password
-               }
+                }
 
             }
 
         });
 
+    }
+
+    private void jsonParse() {
+        String url = "https://api.myjson.com/bins/bxdlg";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray jArray = response.getJSONArray("users");
+                            JSONObject jsonObject = jArray.getJSONObject(0);
+                            userFromJ = jsonObject.getString("username");
+                            passFromJ = jsonObject.getString("password");
 
 
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+
+            }
+         });
+        queue.add(request);
 
 
     }
 
+    private Boolean checkUser(String userFromPhone, String userFromJson){
+        return userFromPhone.matches(userFromJson);
+    }
+
+    private Boolean checkPassword(String passFromPhone, String passFromJson){
+        return passFromPhone.matches(passFromJson);
+    }
 
     public String getPassword() {
         return password;
