@@ -21,5 +21,7 @@ public class LoginTest {
     }
 
     @Test
-    public void testButton(){}
+    public void testButton(){
+
+    }
 }
